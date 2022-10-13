@@ -1,6 +1,3 @@
-from unicodedata import decimal
-
-
 class Binary:
     def __init__(self, num):
         self.num = num
@@ -32,6 +29,7 @@ class Binary:
     @staticmethod
     def ToBin(num):
         num = int(str(num))
+
         if num <= 0:
             return ''
         else:
