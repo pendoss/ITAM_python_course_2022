@@ -22,7 +22,7 @@ class Binary:
     def ToDec(num):
         dec = 0
         num = str(num)[::-1]
-        # print(len(num), [i for i in range(len(num)-1, -1 ,-1)])
+        
         for i in range(0,len(num)):
             
             dec += int(num[i])*pow(2,i)
