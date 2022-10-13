@@ -38,16 +38,6 @@ class Binary:
         else:
             return Binary.ToBin(num//2) + str(num%2)
 
-
-    
-    
-    
-
-
-
-        
-
-
 def main():
     b = Binary(10)
     a = Binary(101)
