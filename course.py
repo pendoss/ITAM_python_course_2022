@@ -4,12 +4,15 @@ class Binary:
         
     def __add__(self, other) :
         return Binary.ToBin(int(Binary.ToDec(self.num), base = 10) + int(Binary.ToDec(other.num), base = 10))
+    
     def __sub__(self,  other):
         return Binary.ToBin(int(Binary.ToDec(self.num), base = 10) - int(Binary.ToDec(other.num), base = 10))
         
-    # def __mul__(self, other):
-        
-    # def __floordiv__(self, other):
+    def __mul__(self, other):
+        return self.num * other.num
+    
+    def __floordiv__(self, other):
+        return self.num // other.num
         
 
     def __str__(self):
@@ -48,9 +51,10 @@ class Binary:
 def main():
     b = Binary(10)
     a = Binary(101)
-    print(Binary.ToBin(b))
     print(a+b)
     print(a-b)
+    print(a*b)
+    print(a//b)
 
 
 if __name__ == "__main__":
