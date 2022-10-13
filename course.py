@@ -6,13 +6,14 @@ class Binary:
         self.num = num
         
     def __add__(self, other) :
-        return Binary(int(bin(Binary.ToDec(int(self.num)))[2::]) + int(bin(Binary.ToDec(int(other.num)))[2::]))
+        return Binary.ToBin(int(Binary.ToDec(self.num), base = 10) + int(Binary.ToDec(other.num), base = 10))
     def __sub__(self,  other):
-        return int(bin(Binary.ToDec(int(self.num))[2::] - bin(Binary.ToDec(other.num), 2))[2::])
-    def __mul__(self, other):
-        return int(bin(Binary.ToDec(int(self.num))[2::] *bin(Binary.ToDec(other.num), 2))[2::])
-    def __floordiv__(self, other):
-        return int(bin(Binary.ToDec(int(self.num)) // bin(Binary.ToDec(other.num), 2))[2::])
+        return Binary.ToBin(int(Binary.ToDec(self.num), base = 10) - int(Binary.ToDec(other.num), base = 10))
+        
+    # def __mul__(self, other):
+        
+    # def __floordiv__(self, other):
+        
 
     def __str__(self):
         return str(self.num)
@@ -20,13 +21,24 @@ class Binary:
     @staticmethod
     def ToDec(num):
         dec = 0
-        num = str(num)
+        num = str(num)[::-1]
         # print(len(num), [i for i in range(len(num)-1, -1 ,-1)])
-        for i in range(len(num)-1, -1 ,-1):
+        for i in range(0,len(num)):
             
             dec += int(num[i])*pow(2,i)
 
-        return int(dec)
+        return str(dec)
+
+    @staticmethod
+    def ToBin(num):
+        num = int(str(num))
+        if num <= 0:
+            return ''
+        else:
+            return Binary.ToBin(num//2) + str(num%2)
+
+
+    
     
     
 
@@ -38,8 +50,9 @@ class Binary:
 def main():
     b = Binary(10)
     a = Binary(101)
-
+    print(Binary.ToBin(b))
     print(a+b)
+    print(a-b)
 
 
 if __name__ == "__main__":
