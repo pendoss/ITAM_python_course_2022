@@ -1,6 +1,3 @@
-from distutils.filelist import translate_pattern
-
-
 class Ternary:
     def __init__(self, num):
         self.num = num
