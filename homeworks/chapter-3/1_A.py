@@ -41,10 +41,12 @@ class Binary:
 def main():
     b = Binary(10)
     a = Binary(101)
-    print(a+b)
-    print(a-b)
-    print(a*b)
-    print(a//b)
+    print(a + b)
+    print(a - b)
+    print(a * b)
+    print(a // b)
+
+
 
 
 if __name__ == "__main__":
